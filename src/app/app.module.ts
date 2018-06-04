@@ -4,13 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavbarComponent} from './navbar/navbar.component';
-import {MatIconModule, MatNavList, MatSidenavModule, MatToolbar} from '@angular/material';
+import {MatIconModule, MatNavList, MatSidenavModule, MatToolbar, MatToolbarModule} from '@angular/material';
 import {RouterModule, Routes} from '@angular/router';
-import { MissionComponent } from './mission/mission.component';
 import { LaunchesComponent } from './launches/launches.component';
 
 const appRoutes: Routes = [
-  {path: 'missions', component: MissionComponent},
   {path: 'launches', component: LaunchesComponent}
 ];
 
@@ -18,9 +16,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NavbarComponent,
-    MatToolbar,
     MatNavList,
-    MissionComponent,
     LaunchesComponent
   ],
   imports: [
@@ -28,6 +24,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatSidenavModule,
     MatIconModule,
+    MatToolbarModule,
     RouterModule.forRoot(
       appRoutes
     )

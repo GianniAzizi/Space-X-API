@@ -7,6 +7,7 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {MatIconModule, MatNavList, MatSidenavModule, MatToolbar, MatToolbarModule} from '@angular/material';
 import {RouterModule, Routes} from '@angular/router';
 import { LaunchesComponent } from './launches/launches.component';
+import {HttpClientModule} from "@angular/common/http";
 
 const appRoutes: Routes = [
   {path: 'launches', component: LaunchesComponent}
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
     MatToolbarModule,
     RouterModule.forRoot(
       appRoutes
-    )
+    ),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

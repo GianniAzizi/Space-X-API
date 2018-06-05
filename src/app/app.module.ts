@@ -9,13 +9,9 @@ import {
   MatToolbarModule
 } from '@angular/material';
 import {RouterModule, Routes} from '@angular/router';
-import { LaunchesComponent } from './launches/launches.component';
 import {HttpClientModule} from '@angular/common/http';
 import {LaunchesModule} from './launches/launches.module';
-
-const appRoutes: Routes = [
-  {path: 'launches', component: LaunchesComponent}
-];
+import {ROUTES} from './app.routes';
 
 @NgModule({
   declarations: [
@@ -30,7 +26,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatListModule,
     RouterModule.forRoot(
-      appRoutes
+      ROUTES
     ),
     HttpClientModule,
     LaunchesModule

@@ -1,5 +1,11 @@
 <div id="filter-section"></div>
 <div *ngFor="let launch of launches">
-  <app-launch [launch]="launch"></app-launch>
+  <app-launch [launch]="launch" (click)="openPopup(launch)"></app-launch>
 </div>
+<div id="launch-popup-container" *ngIf="launchPopupContent">
+  <span class="close" (click)="closePopup()">X</span>
+  <p>mission_name : {{ launchPopupContent.mission_name }}</p>
+  <a routerLink="{{ launchPopupContent.flight_number }}">SEE MORE</a>
+</div>
+<router-outlet></router-outlet>
 

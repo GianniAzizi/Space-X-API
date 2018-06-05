@@ -13,6 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {LaunchesModule} from './launches/launches.module';
 import {ROUTES} from './app.routes';
 import {CompanydataModule} from './companydata/companydata.module';
+import {LaunchpadsModule} from './launchpads/launchpads.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {CompanydataModule} from './companydata/companydata.module';
     ),
     HttpClientModule,
     LaunchesModule,
-    CompanydataModule
+    CompanydataModule,
+    LaunchpadsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

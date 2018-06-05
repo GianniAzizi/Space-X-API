@@ -1,0 +1,10 @@
+<div id="filter-section"></div>
+<div *ngFor="let launchpad of launchPads">
+  <app-launchpad [launchpad]="launchpad" (click)="openPopup(launchpad)"></app-launchpad>
+</div>
+<div id="launchpad-popup-container" *ngIf="launchpadPopupContent">
+  <span class="close" (click)="closePopup()">X</span>
+  <p>Launchpad's name : {{ launchpadPopupContent.full_name }}</p>
+  <a routerLink="{{ launchpadPopupContent.id}}">SEE MORE</a>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,15 @@
+.launchpads {
+  width: calc((100% / 4) - 40px);
+  background: green;
+  height: 330px;
+  float: left;
+  margin: 20px;
+}
+
+#filter-section {
+  height: 200px;
+}
+
+#mission_patch {
+  width: 20%;
+}

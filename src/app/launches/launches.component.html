@@ -1,5 +1,33 @@
-<div id="filter-section"></div>
-<div *ngFor="let launch of launches">
-  <app-launch [launch]="launch"></app-launch>
+<div id="filter-section">
+  <form (submit)="applyFilter()">
+    <label for="start_date">
+      Start date
+      <input id="start_date" type="date" name="start_date" [(ngModel)]="filters.startDate">
+    </label>
+    <label for="end_date">
+      End date
+      <input id="end_date" type="date" name="end_date" [(ngModel)]="filters.endDate">
+    </label>
+    <div>
+      ASC <input type="radio" name="order" value="asc" (change)="changeOrderFilter('asc')" [checked]="this.filters.order === 'asc'">
+      DESC <input type="radio" name="order" value="desc" (change)="changeOrderFilter('desc')" [checked]="this.filters.order === 'desc'">
+    </div>
+    search by launchpad
+    <select [(ngModel)]="this.filters.site_id" name="site_id">
+      <option value="" [selected]="this.filters.site_id === ''">All</option>
+      <option *ngFor="let launchpad of launchpads" [value]="launchpad.id" [selected]="this.filters.site_id === launchpad.id">{{ launchpad.full_name }}</option>
+    </select>
+    <input type="submit" value="Apply">
+    <button (click)="reset()">Reset</button>
+  </form>
 </div>
+<div *ngFor="let launch of launches">
+  <app-launch [launch]="launch" (click)="openPopup(launch)"></app-launch>
+</div>
+<div id="launch-popup-container" *ngIf="launchPopupContent">
+  <span class="close" (click)="closePopup()">X</span>
+  <p>mission_name : {{ launchPopupContent.mission_name }}</p>
+  <a routerLink="{{ launchPopupContent.flight_number }}">SEE MORE</a>
+</div>
+<router-outlet></router-outlet>
 

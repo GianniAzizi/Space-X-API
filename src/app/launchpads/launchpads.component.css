@@ -1,4 +1,4 @@
-#launch-popup-container {
+#launchpad-popup-container {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -8,10 +8,6 @@
   margin: auto;
   background: blue;
   height: 300px;
-}
-
-#filter-section {
-  height: 250px;
 }
 
 .close {

@@ -1,6 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {
+  MatCardModule,
+  MatExpansionModule
+} from '@angular/material';
+
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavbarComponent} from './navbar/navbar.component';
@@ -8,17 +13,12 @@ import {
   MatIconModule, MatListModule, MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
-import {RouterModule, Routes} from '@angular/router';
-import { LaunchesComponent } from './launches/launches.component';
-import { CompanydataComponent } from './companydata/companydata.component';
+import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {LaunchesModule} from './launches/launches.module';
+import {ROUTES} from './app.routes';
 import {CompanydataModule} from './companydata/companydata.module';
-
-const appRoutes: Routes = [
-  {path: 'launches', component: LaunchesComponent},
-  {path: 'company', component: CompanydataComponent}
-];
+import {LaunchpadsModule} from './launchpads/launchpads.module';
 
 @NgModule({
   declarations: [
@@ -32,12 +32,15 @@ const appRoutes: Routes = [
     MatIconModule,
     MatToolbarModule,
     MatListModule,
+    MatCardModule,
+    MatExpansionModule,
     RouterModule.forRoot(
-      appRoutes
+      ROUTES
     ),
     HttpClientModule,
     LaunchesModule,
-    CompanydataModule
+    CompanydataModule,
+    LaunchpadsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

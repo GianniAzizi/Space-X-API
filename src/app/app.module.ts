@@ -10,11 +10,14 @@ import {
 } from '@angular/material';
 import {RouterModule, Routes} from '@angular/router';
 import { LaunchesComponent } from './launches/launches.component';
+import { CompanydataComponent } from './companydata/companydata.component';
 import {HttpClientModule} from '@angular/common/http';
 import {LaunchesModule} from './launches/launches.module';
+import {CompanydataModule} from './companydata/companydata.module';
 
 const appRoutes: Routes = [
-  {path: 'launches', component: LaunchesComponent}
+  {path: 'launches', component: LaunchesComponent},
+  {path: 'company', component: CompanydataComponent}
 ];
 
 @NgModule({
@@ -33,7 +36,8 @@ const appRoutes: Routes = [
       appRoutes
     ),
     HttpClientModule,
-    LaunchesModule
+    LaunchesModule,
+    CompanydataModule
   ],
   providers: [],
   bootstrap: [AppComponent]

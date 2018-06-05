@@ -9,17 +9,21 @@ import {Launch} from './launches.model';
 })
 export class LaunchesComponent implements OnInit {
   launches: Launch[];
+  launchPopupContent: Launch;
 
   constructor(private launchesService: LaunchesService) { }
 
   ngOnInit() {
     this.launchesService.getAll().subscribe(
-      ((data) => this.launches = data),
-      ((err) => this.handleHttpError(err))
+      ((data) => this.launches = data)
     );
   }
 
-  private handleHttpError(err) {
-    console.log(err);
+  openPopup(launch: Launch) {
+    this.launchPopupContent = launch;
+  }
+
+  closePopup() {
+    this.launchPopupContent = null;
   }
 }

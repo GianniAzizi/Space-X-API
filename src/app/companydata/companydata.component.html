@@ -1,65 +1,83 @@
-<h1>Basic informations</h1>
-<br/>
-<p>
-  Name: {{companyData?.name}}
-</p>
-
-<p>
-  Description: {{companyData?.summary}}
-</p>
-
-<p>
-  Founder: {{companyData?.founder}}
-</p>
-
-<p>
-  Founded: {{companyData?.founded}}
-</p>
-
-<p>
-  Employees: {{companyData?.employees}}
-</p>
-
-<p>
-  Vehicles: {{companyData?.vehicles}}
-</p>
-
-<p>
-  Launch sites: {{companyData?.launch_sites}}
-</p>
-
-<p>
-  CEO: {{companyData?.ceo}}
-</p>
-
-<p>
-  CTO: {{companyData?.cto}}
-</p>
-
-<p>
-  COO: {{companyData?.coo}}
-</p>
-
-<p>
-  CTO propulsion: {{companyData?.cto_propulsion}}
-</p>
-
-<p>
-  Valuation: {{companyData?.valuation}}$
-</p>
-
 <br/>
 <h2>Headquarters informations</h2>
-<br/>
 
 <p>
-  Address: {{companyData?.headquarters.address}}
+  Address: {{companyData.headquarters.address}}
 </p>
 
 <p>
-  City: {{companyData?.headquarters.city}}
+  City: {{companyData.headquarters.city}}
 </p>
 
 <p>
-  State: {{companyData?.headquarters.state}}
+  State: {{companyData.headquarters.state}}
 </p>
+
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Informations
+      </mat-panel-title>
+      <mat-panel-description>
+        General informations about {{companyData.name}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <p>
+      {{companyData.summary}}
+    </p>
+
+    <p>
+      <b>Founder</b>: {{companyData.founder}}
+    </p>
+
+    <p>
+      <b>Founded</b>: {{companyData.founded}}
+    </p>
+
+    <p>
+      <b>Employees</b>: {{companyData.employees}}
+    </p>
+
+    <p>
+      <b>Vehicles</b>: {{companyData.vehicles}}
+    </p>
+
+    <p>
+      <b>Launch sites</b>: {{companyData.launch_sites}}
+    </p>
+
+    <p>
+      <b>CEO</b>: {{companyData.ceo}}
+    </p>
+
+    <p>
+      <b>CTO</b>: {{companyData.cto}}
+    </p>
+
+    <p>
+      <b>COO</b>: {{companyData.coo}}
+    </p>
+
+    <p>
+      <b>CTO propulsion</b>: {{companyData.cto_propulsion}}
+    </p>
+
+    <p>
+      <b>Valuation</b>: {{companyData.valuation}} $
+    </p>
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Self aware panel
+      </mat-panel-title>
+      <mat-panel-description>
+        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
+</mat-accordion>

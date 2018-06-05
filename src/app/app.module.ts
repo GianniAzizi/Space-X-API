@@ -1,6 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {
+  MatCardModule,
+  MatExpansionModule
+} from '@angular/material';
+
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavbarComponent} from './navbar/navbar.component';
@@ -26,6 +31,8 @@ import {CompanydataModule} from './companydata/companydata.module';
     MatIconModule,
     MatToolbarModule,
     MatListModule,
+    MatCardModule,
+    MatExpansionModule,
     RouterModule.forRoot(
       ROUTES
     ),

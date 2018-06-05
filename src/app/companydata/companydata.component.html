@@ -1,21 +1,5 @@
-<br/>
-<h2>Headquarters informations</h2>
-
-<p>
-  Address: {{companyData.headquarters.address}}
-</p>
-
-<p>
-  City: {{companyData.headquarters.city}}
-</p>
-
-<p>
-  State: {{companyData.headquarters.state}}
-</p>
-
-
 <mat-accordion>
-  <mat-expansion-panel>
+  <mat-expansion-panel [expanded]="true">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Informations
@@ -28,7 +12,7 @@
     <p>
       {{companyData.summary}}
     </p>
-
+    
     <p>
       <b>Founder</b>: {{companyData.founder}}
     </p>
@@ -72,12 +56,22 @@
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Self aware panel
+      Headquarters informations
       </mat-panel-title>
       <mat-panel-description>
-        :)
+        Location informations about {{companyData.name}} headquarters
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
+    <p>
+      <b>Address</b>: {{companyData.headquarters.address}}
+    </p>
+
+    <p>
+      <b>City</b>: {{companyData.headquarters.city}}
+    </p>
+
+    <p>
+      <b>State</b>: {{companyData.headquarters.state}}
+    </p>
   </mat-expansion-panel>
 </mat-accordion>

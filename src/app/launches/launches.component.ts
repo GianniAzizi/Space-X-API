@@ -85,7 +85,9 @@ export class LaunchesComponent implements OnInit {
   }
 
   openYoutubeDialog(launch: Launch) {
-    this.youtubeDialogRef = this.dialog.open(YoutubeDialogComponent);
+    this.youtubeDialogRef = this.dialog.open(YoutubeDialogComponent, {
+      panelClass: 'cinemaPanel'
+        });
     this.youtubeDialogRef.componentInstance.launch = launch;
   }
 }

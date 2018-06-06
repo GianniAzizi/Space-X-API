@@ -6,14 +6,15 @@ import {LaunchDetailsComponent} from './launch/launch-details.component';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from "@angular/forms";
 import { MaterialModule } from '../material/material.module';
-import { YoutubeDialogComponent } from './youtube-dialog/youtube-dialog.component';
+import { YoutubeDialogComponent, SafePipe } from './youtube-dialog/youtube-dialog.component';
 
 @NgModule({
   declarations: [
     LaunchesComponent,
     LaunchComponent,
     LaunchDetailsComponent,
-    YoutubeDialogComponent
+    YoutubeDialogComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

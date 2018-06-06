@@ -14,16 +14,20 @@ import {
   MatToolbarModule
 } from '@angular/material';
 import {RouterModule} from '@angular/router';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {LaunchesModule} from './launches/launches.module';
 import {ROUTES} from './app.routes';
 import {CompanydataModule} from './companydata/companydata.module';
 import {LaunchpadsModule} from './launchpads/launchpads.module';
+import {MaterialModule} from './material/material.module';
+import {ErrorHandlerInterceptor} from './interceptor/error-handler-interceptor.interceptor';
+import {ErrorComponent} from './error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -40,9 +44,12 @@ import {LaunchpadsModule} from './launchpads/launchpads.module';
     HttpClientModule,
     LaunchesModule,
     CompanydataModule,
-    LaunchpadsModule
+    LaunchpadsModule,
+    MaterialModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorHandlerInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

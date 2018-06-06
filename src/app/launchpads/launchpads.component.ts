@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {LaunchpadsService} from './launchpads.service';
 import {Launchpad} from './launchpads.model';
 
@@ -9,6 +9,7 @@ import {Launchpad} from './launchpads.model';
   styleUrls: ['./launchpads.component.css']
 })
 export class LaunchpadsComponent implements OnInit {
+
   launchPads: Launchpad[];
   launchpadPopupContent: Launchpad;
 

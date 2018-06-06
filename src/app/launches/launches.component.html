@@ -17,17 +17,44 @@
       <option value="" [selected]="this.filters.site_id === ''">All</option>
       <option *ngFor="let launchpad of launchpads" [value]="launchpad.id" [selected]="this.filters.site_id === launchpad.id">{{ launchpad.full_name }}</option>
     </select>
+    <br>
+    search by rocket
+    <select [(ngModel)]="this.filters.rocket_id" name="rocket_id">
+      <option value="" [selected]="this.filters.rocket_id === ''">All</option>
+      <option *ngFor="let rocket of rockets" [value]="rocket.id" [selected]="this.filters.rocket_id === rocket.id">{{ rocket.name }}</option>
+    </select>
+    <br>
     <input type="submit" value="Apply">
     <button (click)="reset()">Reset</button>
   </form>
 </div>
-<div *ngFor="let launch of launches">
+
+<div class="flexCardContainer">
+<mat-card class="launch-card" *ngFor="let launch of launches">
+  <mat-card-header>
+    <div mat-card-avatar class="launch-header-image" [style.background-image]="'url('+ launch.links.mission_patch_small +')'"></div>
+    <mat-card-title>{{ launch.mission_name }}</mat-card-title>
+    <mat-card-subtitle>Launch #{{ launch.flight_number }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ launch.details }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button routerLink="{{ launch.flight_number }}" mat-button>VIEW MORE</button>
+    <button (click)="openYoutubeDialog(launch)" mat-button>VIDEO</button>
+  </mat-card-actions>
+</mat-card>
+</div>
+
+<!--<div *ngFor="let launch of launches">
   <app-launch [launch]="launch" (click)="openPopup(launch)"></app-launch>
 </div>
 <div id="launch-popup-container" *ngIf="launchPopupContent">
   <span class="close" (click)="closePopup()">X</span>
   <p>mission_name : {{ launchPopupContent.mission_name }}</p>
   <a routerLink="{{ launchPopupContent.flight_number }}">SEE MORE</a>
-</div>
+</div>-->
 <router-outlet></router-outlet>
 

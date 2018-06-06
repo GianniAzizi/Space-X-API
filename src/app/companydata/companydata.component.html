@@ -1,77 +1,77 @@
-<mat-accordion>
+<mat-accordion multi="true">
   <mat-expansion-panel [expanded]="true">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Informations
       </mat-panel-title>
       <mat-panel-description>
-        General informations about {{companyData.name}}
+        General informations about {{companyData?.name}}
       </mat-panel-description>
     </mat-expansion-panel-header>
 
     <p>
-      {{companyData.summary}}
-    </p>
-    
-    <p>
-      <b>Founder</b>: {{companyData.founder}}
+      {{companyData?.summary}}
     </p>
 
     <p>
-      <b>Founded</b>: {{companyData.founded}}
+      <b>Founder</b>: {{companyData?.founder}}
     </p>
 
     <p>
-      <b>Employees</b>: {{companyData.employees}}
+      <b>Founded</b>: {{companyData?.founded}}
     </p>
 
     <p>
-      <b>Vehicles</b>: {{companyData.vehicles}}
+      <b>Employees</b>: {{companyData?.employees}}
     </p>
 
     <p>
-      <b>Launch sites</b>: {{companyData.launch_sites}}
+      <b>Vehicles</b>: {{companyData?.vehicles}}
     </p>
 
     <p>
-      <b>CEO</b>: {{companyData.ceo}}
+      <b>Launch sites</b>: {{companyData?.launch_sites}}
     </p>
 
     <p>
-      <b>CTO</b>: {{companyData.cto}}
+      <b>CEO</b>: {{companyData?.ceo}}
     </p>
 
     <p>
-      <b>COO</b>: {{companyData.coo}}
+      <b>CTO</b>: {{companyData?.cto}}
     </p>
 
     <p>
-      <b>CTO propulsion</b>: {{companyData.cto_propulsion}}
+      <b>COO</b>: {{companyData?.coo}}
     </p>
 
     <p>
-      <b>Valuation</b>: {{companyData.valuation}} $
+      <b>CTO propulsion</b>: {{companyData?.cto_propulsion}}
+    </p>
+
+    <p>
+      <b>Valuation</b>: {{companyData?.valuation}} $
     </p>
   </mat-expansion-panel>
-  <mat-expansion-panel>
+  <mat-expansion-panel [expanded]="true">
     <mat-expansion-panel-header>
       <mat-panel-title>
       Headquarters informations
       </mat-panel-title>
       <mat-panel-description>
-        Location informations about {{companyData.name}} headquarters
+        Location informations about {{companyData?.name}} headquarters
       </mat-panel-description>
     </mat-expansion-panel-header>
     <p>
-      <b>Address</b>: {{companyData.headquarters.address}}
+      <b>Address</b>: {{companyData?.headquarters.address}}
     </p>
 
     <p>
-      <b>City</b>: {{companyData.headquarters.city}}
+      <b>City</b>: {{companyData?.headquarters.city}}
     </p>
 
     <p>
-      <b>State</b>: {{companyData.headquarters.state}}
+      <b>State</b>: {{companyData?.headquarters.state}}
     </p>
   </mat-expansion-panel>
 </mat-accordion>

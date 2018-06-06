@@ -1,0 +1,7 @@
+<h1 mat-dialog-title>Launch #{{ launch.flight_number }} - {{ launch.mission_name }}</h1>
+<mat-dialog-content>
+  <iframe width="560" height="315" [src]="launch.links.video_link | safe" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

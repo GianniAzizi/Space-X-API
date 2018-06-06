@@ -4,16 +4,22 @@ import {LaunchpadComponent} from './launchpad/launchpad.component';
 import {LaunchpadDetailsComponent} from './launchpad/launchpad-details.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
+import {GooglemapsComponent} from '../googlemaps/googlemaps.component';
+import {AgmCoreModule} from '@agm/core';
 
 @NgModule({
   declarations: [
     LaunchpadsComponent,
     LaunchpadComponent,
-    LaunchpadDetailsComponent
+    LaunchpadDetailsComponent,
+    GooglemapsComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule
+    RouterModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC2JTwuEuSMGvZgOdkBQaLkQ7j78l_EGII'
+    })
   ],
   bootstrap: [LaunchpadsComponent]
 })

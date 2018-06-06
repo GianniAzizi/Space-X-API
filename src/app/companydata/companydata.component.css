@@ -1,0 +1,8 @@
+.histories {
+  width: calc((100% / 2) - 40px);
+  border: 1px solid grey;
+  height:300px;
+  float: left;
+  margin: 19px;
+  background:white;
+}

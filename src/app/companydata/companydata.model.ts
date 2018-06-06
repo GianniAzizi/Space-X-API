@@ -20,3 +20,19 @@ export interface Headquarters {
   city: string;
   state: string;
 }
+
+
+export interface History {
+  title: string;
+  event_date_utc: Date;
+  flight_number: number;
+  details: string;
+  links: Links;
+}
+
+export interface Links {
+  reddit: string;
+  article: string;
+  wikipedia: string;
+}
+

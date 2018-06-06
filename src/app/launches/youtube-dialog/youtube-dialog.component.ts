@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Launch } from '../launches.model';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-youtube-dialog',
@@ -10,7 +11,7 @@ export class YoutubeDialogComponent implements OnInit {
 
   launch: Launch;
 
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
   }
@@ -20,7 +21,7 @@ export class YoutubeDialogComponent implements OnInit {
     var match = url.match(regExp);
 
     if (match && match[2].length == 11) {
-        return "https://www.youtube.com/embed/"+match[2]+"?rel=0&amp;controls=0&amp;showinfo=0";
+        return this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/"+match[2]+"?rel=0&amp;controls=0&amp;showinfo=0");
     } else {
         return 'error';
     }

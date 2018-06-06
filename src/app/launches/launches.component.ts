@@ -1,14 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import {LaunchesService} from './launches.service';
-import {Launch} from './launches.model';
-import {LaunchpadsService} from '../launchpads/launchpads.service';
-import {Launchpad} from '../launchpads/launchpads.model';
+import { LaunchesService } from './launches.service';
+import { Launch } from './launches.model';
+import { LaunchpadsService } from '../launchpads/launchpads.service';
+import { Launchpad } from '../launchpads/launchpads.model';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { YoutubeDialogComponent } from './youtube-dialog/youtube-dialog.component';
 
 @Component({
   selector: 'app-launches',
   templateUrl: './launches.component.html',
   styleUrls: ['./launches.component.css']
 })
+
+
+
 export class LaunchesComponent implements OnInit {
   launches: Launch[];
   launchPopupContent: Launch;
@@ -19,10 +24,12 @@ export class LaunchesComponent implements OnInit {
     order: 'asc',
     site_id: ''
   };
+  youtubeDialogRef: MatDialogRef<YoutubeDialogComponent>;
 
   constructor(
     private launchesService: LaunchesService,
-    private launchpadsService: LaunchpadsService
+    private launchpadsService: LaunchpadsService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -75,5 +82,10 @@ export class LaunchesComponent implements OnInit {
 
   closePopup() {
     this.launchPopupContent = null;
+  }
+
+  openYoutubeDialog(launch: Launch) {
+    this.youtubeDialogRef = this.dialog.open(YoutubeDialogComponent);
+    this.youtubeDialogRef.componentInstance.launch = launch;
   }
 }

@@ -17,6 +17,13 @@
       <option value="" [selected]="this.filters.site_id === ''">All</option>
       <option *ngFor="let launchpad of launchpads" [value]="launchpad.id" [selected]="this.filters.site_id === launchpad.id">{{ launchpad.full_name }}</option>
     </select>
+    <br>
+    search by rocket
+    <select [(ngModel)]="this.filters.rocket_id" name="rocket_id">
+      <option value="" [selected]="this.filters.rocket_id === ''">All</option>
+      <option *ngFor="let rocket of rockets" [value]="rocket.id" [selected]="this.filters.rocket_id === rocket.id">{{ rocket.name }}</option>
+    </select>
+    <br>
     <input type="submit" value="Apply">
     <button (click)="reset()">Reset</button>
   </form>

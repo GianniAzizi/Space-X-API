@@ -19,6 +19,7 @@ import {LaunchesModule} from './launches/launches.module';
 import {ROUTES} from './app.routes';
 import {CompanydataModule} from './companydata/companydata.module';
 import {LaunchpadsModule} from './launchpads/launchpads.module';
+import {MaterialModule} from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {LaunchpadsModule} from './launchpads/launchpads.module';
     HttpClientModule,
     LaunchesModule,
     CompanydataModule,
-    LaunchpadsModule
+    LaunchpadsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

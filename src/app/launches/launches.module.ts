@@ -5,18 +5,24 @@ import {LaunchComponent} from './launch/launch.component';
 import {LaunchDetailsComponent} from './launch/launch-details.component';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from "@angular/forms";
+import { MaterialModule } from '../material/material.module';
+import { YoutubeDialogComponent, SafePipe } from './youtube-dialog/youtube-dialog.component';
 
 @NgModule({
   declarations: [
     LaunchesComponent,
     LaunchComponent,
-    LaunchDetailsComponent
+    LaunchDetailsComponent,
+    YoutubeDialogComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    MaterialModule
   ],
-  bootstrap: [LaunchesComponent]
+  bootstrap: [LaunchesComponent],
+  entryComponents: [YoutubeDialogComponent]
 })
 export class LaunchesModule {}

@@ -5,12 +5,17 @@ import {LaunchpadsService} from '../launchpads/launchpads.service';
 import {Launchpad} from '../launchpads/launchpads.model';
 import {Rocket} from '../rockets/rockets.model';
 import {RocketsService} from '../rockets/rockets.service';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { YoutubeDialogComponent } from './youtube-dialog/youtube-dialog.component';
 
 @Component({
   selector: 'app-launches',
   templateUrl: './launches.component.html',
   styleUrls: ['./launches.component.css']
 })
+
+
+
 export class LaunchesComponent implements OnInit {
   static FILTERS = { startDate: '', endDate: '', order: 'asc', site_id: '', rocket_id: '' };
   launches: Launch[];
@@ -18,11 +23,13 @@ export class LaunchesComponent implements OnInit {
   launchpads: Launchpad[];
   rockets: Rocket[];
   filters = LaunchesComponent.FILTERS;
+  youtubeDialogRef: MatDialogRef<YoutubeDialogComponent>;
 
   constructor(
     private launchesService: LaunchesService,
     private launchpadsService: LaunchpadsService,
-    private rocketsService: RocketsService
+    private rocketsService: RocketsService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -74,5 +81,12 @@ export class LaunchesComponent implements OnInit {
 
   closePopup() {
     this.launchPopupContent = null;
+  }
+
+  openYoutubeDialog(launch: Launch) {
+    this.youtubeDialogRef = this.dialog.open(YoutubeDialogComponent, {
+      panelClass: 'cinemaPanel'
+        });
+    this.youtubeDialogRef.componentInstance.launch = launch;
   }
 }

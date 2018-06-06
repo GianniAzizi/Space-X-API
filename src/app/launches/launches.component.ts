@@ -3,6 +3,8 @@ import {LaunchesService} from './launches.service';
 import {Launch} from './launches.model';
 import {LaunchpadsService} from '../launchpads/launchpads.service';
 import {Launchpad} from '../launchpads/launchpads.model';
+import {Rocket} from '../rockets/rockets.model';
+import {RocketsService} from '../rockets/rockets.service';
 
 @Component({
   selector: 'app-launches',
@@ -10,25 +12,26 @@ import {Launchpad} from '../launchpads/launchpads.model';
   styleUrls: ['./launches.component.css']
 })
 export class LaunchesComponent implements OnInit {
+  static FILTERS = { startDate: '', endDate: '', order: 'asc', site_id: '', rocket_id: '' };
   launches: Launch[];
   launchPopupContent: Launch;
   launchpads: Launchpad[];
-  filters = {
-    startDate: '',
-    endDate: '',
-    order: 'asc',
-    site_id: ''
-  };
+  rockets: Rocket[];
+  filters = LaunchesComponent.FILTERS;
 
   constructor(
     private launchesService: LaunchesService,
-    private launchpadsService: LaunchpadsService
+    private launchpadsService: LaunchpadsService,
+    private rocketsService: RocketsService
   ) { }
 
   ngOnInit() {
     this.loadAll();
     this.launchpadsService.getAll().subscribe(
       ((data) => this.launchpads = data)
+    );
+    this.rocketsService.getAll().subscribe(
+      ((data) => this.rockets = data)
     );
   }
 
@@ -46,6 +49,7 @@ export class LaunchesComponent implements OnInit {
     filters.set('final', String(endDate));
     filters.set('order', this.filters.order);
     filters.set('site_id', String(this.filters.site_id));
+    filters.set('rocket_id', this.filters.rocket_id);
     this.launchesService.getByFilters(filters).subscribe(
       ((data) => this.launches = data)
     );
@@ -53,12 +57,7 @@ export class LaunchesComponent implements OnInit {
 
   reset() {
     this.loadAll();
-    this.filters = {
-      startDate: '',
-      endDate: '',
-      order: 'asc',
-      site_id: ''
-    };
+    this.filters = LaunchesComponent.FILTERS;
   }
 
   changeOrderFilter(order) {

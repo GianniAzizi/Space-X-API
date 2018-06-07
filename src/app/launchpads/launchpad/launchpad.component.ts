@@ -8,10 +8,19 @@ import {Launchpad} from '../launchpads.model';
 })
 export class LaunchpadComponent implements OnInit {
   @Input() launchpad: Launchpad;
+  popup = false;
 
   constructor() {}
 
   ngOnInit() {
 
+  }
+
+  openPopup(launchpad: Launchpad) {
+    this.popup = true;
+  }
+
+  closePopup() {
+    this.popup = false;
   }
 }

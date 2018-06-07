@@ -1,8 +1,16 @@
-<div class="launchpads">
+<div class="launchpads" (click)="openPopup(launchpad)">
   <p>Name: {{ launchpad.full_name }}</p>
   <br/>
   <p>Details: {{ launchpad.details }}</p>
   <br/>
   <p>Status: {{ launchpad.status }}</p>
   <p>Vehicles: {{ launchpad.vehicles_launched}}</p>
+</div>
+
+<div class="launchpad-popup-container" *ngIf="popup">
+  <span class="close" (click)="closePopup()">X</span>
+  <p>Launchpad's name : {{ launchpad.full_name }}</p>
+  <p>Details : {{ launchpad.details }}</p>
+  <app-googlemaps [lat]=launchpad.location.latitude [lng]=launchpad.location.longitude></app-googlemaps>
+  <a routerLink="{{ launchpad.id}}">SEE MORE</a>
 </div>

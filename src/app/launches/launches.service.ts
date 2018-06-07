@@ -19,6 +19,10 @@ export class LaunchesService {
     return this.http.get<Launch>(`${this.baseUrl}/latest`);
   }
 
+  getUpcoming(): Observable<Launch> {
+    return this.http.get<Launch>(`${this.baseUrl}/upcoming`);
+  }
+
   getByFlightNumber(flightNumber: string): Observable<Launch> {
     const options = {
       params: new HttpParams().set('flight_number', flightNumber)

@@ -1,7 +1,21 @@
-<div class="launches">
-    <img id="mission_patch" src="{{ launch.links.mission_patch }}">
-    <p id="flight_number">flight_number : {{ launch.flight_number }}</p>
-    <p id="launch_year">launch_year : {{ launch.launch_year }}</p>
-    <p id="mission_name">mission_name : {{ launch.mission_name }}</p>
-</div>
-
+<mat-card class="launch-card">
+  <mat-card-header>
+    <div mat-card-avatar class="launch-header-image" [style.background-image]="'url('+ launch.links.mission_patch_small +')'"></div>
+    <mat-card-title>{{ launch.mission_name }}
+      <span [ngSwitch]="launch.rocket.first_stage.cores[0].land_success">
+        <span class="landing-success" *ngSwitchCase="true">success</span>
+        <span class="landing-failure" *ngSwitchCase="false">failure</span>
+      </span>
+    </mat-card-title>
+    <mat-card-subtitle>Launch #{{ launch.flight_number }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ launch.details }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button routerLink="{{ launch.flight_number }}" mat-button>VIEW MORE</button>
+    <button (click)="openYoutubeDialog(launch)" mat-button>VIDEO</button>
+  </mat-card-actions>
+</mat-card>

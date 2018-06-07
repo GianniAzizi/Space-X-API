@@ -19,23 +19,25 @@ import { YoutubeDialogComponent } from './youtube-dialog/youtube-dialog.componen
 export class LaunchesComponent implements OnInit {
   static FILTERS = { startDate: '', endDate: '', order: 'asc', site_id: '', rocket_id: '' };
   launches: Launch[];
-  launchPopupContent: Launch;
   launchpads: Launchpad[];
+  upcomingLaunch: Launch;
   rockets: Rocket[];
   filters = LaunchesComponent.FILTERS;
-  youtubeDialogRef: MatDialogRef<YoutubeDialogComponent>;
+
 
   constructor(
     private launchesService: LaunchesService,
     private launchpadsService: LaunchpadsService,
-    private rocketsService: RocketsService,
-    private dialog: MatDialog
+    private rocketsService: RocketsService
   ) { }
 
   ngOnInit() {
     this.loadAll();
     this.launchpadsService.getAll().subscribe(
       ((data) => this.launchpads = data)
+    );
+    this.launchesService.getUpcoming().subscribe(
+      ((data) => this.upcomingLaunch = data)
     );
     this.rocketsService.getAll().subscribe(
       ((data) => this.rockets = data)
@@ -73,20 +75,5 @@ export class LaunchesComponent implements OnInit {
 
   private convertToTimestamp(date) {
     return (new Date(date).getTime()) / 1000;
-  }
-
-  openPopup(launch: Launch) {
-    this.launchPopupContent = launch;
-  }
-
-  closePopup() {
-    this.launchPopupContent = null;
-  }
-
-  openYoutubeDialog(launch: Launch) {
-    this.youtubeDialogRef = this.dialog.open(YoutubeDialogComponent, {
-      panelClass: 'cinemaPanel'
-        });
-    this.youtubeDialogRef.componentInstance.launch = launch;
   }
 }

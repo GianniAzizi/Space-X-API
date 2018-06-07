@@ -36,18 +36,21 @@
     </div>
   </mat-tab>
   <mat-tab label="Upcoming launch">
+    <div style="height: 50px;"></div>
     <div class="flexCardContainer">
       <mat-spinner *ngIf="!upcomingLaunch"></mat-spinner>
       <app-launch *ngFor="let launch of upcomingLaunch" [launch]="launch"></app-launch>
     </div>
   </mat-tab>
   <mat-tab label="Next launch">
+    <div style="height: 50px;"></div>
     <div class="flexCardContainer">
       <mat-spinner *ngIf="!nextLaunch"></mat-spinner>
       <app-launch *ngIf="nextLaunch" [launch]="nextLaunch"></app-launch>
     </div>
   </mat-tab>
   <mat-tab label="Latest launch">
+    <div style="height: 50px;"></div>
     <div class="flexCardContainer">
       <mat-spinner *ngIf="!latestLaunch"></mat-spinner>
       <app-launch *ngIf="latestLaunch" [launch]="latestLaunch"></app-launch>

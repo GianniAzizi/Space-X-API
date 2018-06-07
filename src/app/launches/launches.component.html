@@ -1,37 +1,6 @@
 <mat-tab-group>
   <mat-tab label="All launches">
 
-    <!--<div id="filter-section">
-      <form (submit)="applyFilter()">
-        <label for="start_date">
-          Start date
-          <input id="start_date" type="date" name="start_date" [(ngModel)]="filters.startDate">
-        </label>
-        <label for="end_date">
-          End date
-          <input id="end_date" type="date" name="end_date" [(ngModel)]="filters.endDate">
-        </label>
-        <div>
-          ASC
-          <input type="radio" name="order" value="asc" (change)="changeOrderFilter('asc')" [checked]="this.filters.order === 'asc'"> DESC
-          <input type="radio" name="order" value="desc" (change)="changeOrderFilter('desc')" [checked]="this.filters.order === 'desc'">
-        </div>
-        search by launchpad
-        <select [(ngModel)]="this.filters.site_id" name="site_id">
-          <option value="" [selected]="this.filters.site_id === ''">All</option>
-          <option *ngFor="let launchpad of launchpads" [value]="launchpad.id" [selected]="this.filters.site_id === launchpad.id">{{ launchpad.full_name }}</option>
-        </select>
-        <br> search by rocket
-        <select [(ngModel)]="this.filters.rocket_id" name="rocket_id">
-          <option value="" [selected]="this.filters.rocket_id === ''">All</option>
-          <option *ngFor="let rocket of rockets" [value]="rocket.id" [selected]="this.filters.rocket_id === rocket.id">{{ rocket.name }}</option>
-        </select>
-        <br>
-        <input type="submit" value="Apply">
-        <button (click)="reset()">Reset</button>
-      </form>
-    </div>-->
-
     <mat-card class="filterCard">
       <mat-card-header>
         <mat-card-title>Filtering</mat-card-title>
@@ -50,6 +19,13 @@
             <mat-option *ngFor="let launchpad of launchpads" [value]="launchpad.id">{{ launchpad.full_name }}</mat-option>
           </mat-select>
         </mat-form-field>
+
+        <mat-form-field>
+            <mat-select placeholder="Filter by specific rocket" [value]="" [(ngModel)]="this.filters.rocket_id" name="rocket_id">
+              <mat-option value="" value="">All</mat-option>
+              <mat-option *ngFor="let rocket of rockets" [value]="rocket.id">{{ rocket.name }}</mat-option>
+            </mat-select>
+          </mat-form-field>
         <br/>
         <mat-radio-group>
           <mat-radio-button value="asc" (change)="changeOrderFilter('asc')" [checked]="this.filters.order === 'asc'">ASC</mat-radio-button>
@@ -61,8 +37,6 @@
         <button mat-button (click)="reset()">RESET</button>
       </mat-card-actions>
     </mat-card>
-
-
 
     <div class="flexCardContainer">
       <mat-spinner *ngIf="!launches"></mat-spinner>

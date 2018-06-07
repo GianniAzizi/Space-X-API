@@ -4,7 +4,7 @@
     <div *ngIf="!launch.links.mission_patch_small" mat-card-avatar class="launch-header-image" style="background: #eceff1"></div>
     <mat-card-title>{{ launch.mission_name }}
       <span [ngSwitch]="launch.rocket.first_stage.cores[0].land_success">
-        <span class="landing-success" *ngSwitchCase="true">SUCCEED</span>
+        <span class="landing-success" *ngSwitchCase="true">SUCCESS</span>
         <span class="landing-failure" *ngSwitchCase="false">FAILURE</span>
         <span class="landing-unknown" *ngSwitchCase="">UNKNOWN</span>
       </span>

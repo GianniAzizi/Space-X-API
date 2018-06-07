@@ -11,6 +11,7 @@
 <app-rocket [rocket]="rocket"></app-rocket>
 <hr>
 
+<div *ngIf="capsuledetails">
 <h2>Capsule details</h2>
 <p>Name: {{capsuledetails?.name}}</p>
 <p>Orbit duration: {{capsuledetails?.orbit_duration_yr}} years</p>
@@ -32,7 +33,7 @@
 <p>Mass: {{capsuledetails?.launch_payload_mass.kg}}kg</p>
 <p>Volume: {{capsuledetails?.launch_payload_vol.cubic_meters}}m3</p>
 <hr>
-
+</div>
 <h2>Launch site details</h2>
 <app-launchpad [launchpad]="launchpad"></app-launchpad>
 

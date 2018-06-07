@@ -29,3 +29,17 @@
   align-items: flex-start;
 }
 
+
+.filterCard {
+  width: 50%;
+  margin: 20px auto;
+}
+
+
+.mat-radio-button {
+  margin-right: 10px !important;
+}
+
+.mat-form-field {
+  margin: 10px !important;
+}

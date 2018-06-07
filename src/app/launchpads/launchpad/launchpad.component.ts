@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Launchpad} from '../launchpads.model';
+import {MatDialog, MatDialogRef} from '@angular/material';
+import {GoogleMapDialogComponent} from '../googlemap-dialog/googlemap-dialog.component';
 
 @Component({
   selector: 'app-launchpad',
@@ -8,12 +10,12 @@ import {Launchpad} from '../launchpads.model';
 })
 export class LaunchpadComponent implements OnInit {
   @Input() launchpad: Launchpad;
+  googleMapDialog: MatDialogRef<GoogleMapDialogComponent>;
   popup = false;
 
-  constructor() {}
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit() {
-
   }
 
   openPopup(launchpad: Launchpad) {
@@ -22,5 +24,12 @@ export class LaunchpadComponent implements OnInit {
 
   closePopup() {
     this.popup = false;
+  }
+
+  openDialog(launchpad: Launchpad) {
+    this.googleMapDialog = this.dialog.open(GoogleMapDialogComponent, {
+      panelClass: 'cinemaPanel'
+    });
+    this.googleMapDialog.componentInstance.launchpad = launchpad;
   }
 }

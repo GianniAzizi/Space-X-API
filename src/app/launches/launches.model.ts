@@ -55,6 +55,7 @@ export interface LaunchSite {
 
 export interface Links {
   mission_patch: string;
+  mission_patch_small: string;
   reddit_campaign: string;
   reddit_launch: string;
   reddit_recovery?: any;

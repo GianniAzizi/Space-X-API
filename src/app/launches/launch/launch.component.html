@@ -1,10 +1,12 @@
 <mat-card class="launch-card">
   <mat-card-header>
-    <div mat-card-avatar class="launch-header-image" [style.background-image]="'url('+ launch.links.mission_patch_small +')'"></div>
+    <div *ngIf="launch.links.mission_patch_small" mat-card-avatar class="launch-header-image" [style.background-image]="'url('+ launch.links.mission_patch_small +')'"></div>
+    <div *ngIf="!launch.links.mission_patch_small" mat-card-avatar class="launch-header-image" style="background: #eceff1"></div>
     <mat-card-title>{{ launch.mission_name }}
       <span [ngSwitch]="launch.rocket.first_stage.cores[0].land_success">
-        <span class="landing-success" *ngSwitchCase="true">success</span>
-        <span class="landing-failure" *ngSwitchCase="false">failure</span>
+        <span class="landing-success" *ngSwitchCase="true">SUCCESS</span>
+        <span class="landing-failure" *ngSwitchCase="false">FAILURE</span>
+        <span class="landing-unknown" *ngSwitchCase="">UNKNOWN</span>
       </span>
     </mat-card-title>
     <mat-card-subtitle>Launch #{{ launch.flight_number }}</mat-card-subtitle>

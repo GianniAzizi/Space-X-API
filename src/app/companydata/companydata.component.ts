@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {CompanydataService} from './companydata.service';
-import {Companydata} from './companydata.model';
-import {History} from './companydata.model';
+import { CompanydataService } from './companydata.service';
+import { Companydata } from './companydata.model';
+import { History } from './companydata.model';
 
 @Component({
   selector: 'app-companydata',
@@ -22,5 +22,12 @@ export class CompanydataComponent implements OnInit {
     this.companydataService.getHistory().subscribe(
       ((data) => this.histories = data)
     );
+
   }
+
+
+
+
 }
+
+

@@ -1,5 +1,6 @@
 <mat-tab-group>
   <mat-tab label="All launches">
+
     <div id="filter-section">
       <form (submit)="applyFilter()">
         <label for="start_date">
@@ -11,16 +12,16 @@
           <input id="end_date" type="date" name="end_date" [(ngModel)]="filters.endDate">
         </label>
         <div>
-          ASC <input type="radio" name="order" value="asc" (change)="changeOrderFilter('asc')" [checked]="this.filters.order === 'asc'">
-          DESC <input type="radio" name="order" value="desc" (change)="changeOrderFilter('desc')" [checked]="this.filters.order === 'desc'">
+          ASC
+          <input type="radio" name="order" value="asc" (change)="changeOrderFilter('asc')" [checked]="this.filters.order === 'asc'"> DESC
+          <input type="radio" name="order" value="desc" (change)="changeOrderFilter('desc')" [checked]="this.filters.order === 'desc'">
         </div>
         search by launchpad
         <select [(ngModel)]="this.filters.site_id" name="site_id">
           <option value="" [selected]="this.filters.site_id === ''">All</option>
           <option *ngFor="let launchpad of launchpads" [value]="launchpad.id" [selected]="this.filters.site_id === launchpad.id">{{ launchpad.full_name }}</option>
         </select>
-        <br>
-        search by rocket
+        <br> search by rocket
         <select [(ngModel)]="this.filters.rocket_id" name="rocket_id">
           <option value="" [selected]="this.filters.rocket_id === ''">All</option>
           <option *ngFor="let rocket of rockets" [value]="rocket.id" [selected]="this.filters.rocket_id === rocket.id">{{ rocket.name }}</option>
@@ -30,6 +31,26 @@
         <button (click)="reset()">Reset</button>
       </form>
     </div>
+
+    <mat-card class="filterCard">
+      <mat-card-header>
+        <mat-card-title>Filtering</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+
+        <mat-radio-group>
+          <mat-radio-button value="asc" (change)="changeOrderFilter('asc')" [checked]="this.filters.order === 'asc'">ASC</mat-radio-button> 
+          <mat-radio-button value="desc" (change)="changeOrderFilter('desc')" [checked]="this.filters.order === 'desc'">DESC</mat-radio-button>
+        </mat-radio-group>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="applyFilter()">APPLY</button>
+        <button mat-button (click)="reset()">RESET</button>
+      </mat-card-actions>
+    </mat-card>
+
+
+
     <div class="flexCardContainer">
       <mat-spinner *ngIf="!launches"></mat-spinner>
       <app-launch *ngFor="let launch of launches" [launch]="launch"></app-launch>

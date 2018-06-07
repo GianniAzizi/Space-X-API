@@ -37,7 +37,6 @@ export class LaunchDetailsComponent implements OnInit {
             );
         })
         );
-
       })
     );
   }

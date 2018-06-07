@@ -22,13 +22,16 @@ import {LaunchpadsModule} from './launchpads/launchpads.module';
 import {MaterialModule} from './material/material.module';
 import {ErrorHandlerInterceptor} from './interceptor/error-handler-interceptor.interceptor';
 import {ErrorComponent} from './error/error.component';
-import {RocketsModule} from "./rockets/rockets.module";
+import {RocketsModule} from './rockets/rockets.module';
+import { HomeComponent } from './home/home.component';
+import { CountdownTimerModule } from './ngx-countdown-timer';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ErrorComponent
+    ErrorComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import {RocketsModule} from "./rockets/rockets.module";
     CompanydataModule,
     LaunchpadsModule,
     MaterialModule,
-    RocketsModule
+    RocketsModule,
+    CountdownTimerModule.forRoot()
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorHandlerInterceptor, multi: true}

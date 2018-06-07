@@ -5,6 +5,7 @@ import {CompanydataComponent} from './companydata/companydata.component';
 import {LaunchpadsComponent} from './launchpads/launchpads.component';
 import {ErrorComponent} from './error/error.component';
 import {RocketsComponent} from './rockets/rockets.component';
+import {HomeComponent} from './home/home.component';
 
 export const ROUTES: Routes = [
   {path: 'launches', component: LaunchesComponent},
@@ -12,5 +13,6 @@ export const ROUTES: Routes = [
   {path: 'company', component: CompanydataComponent},
   {path: 'launchpads', component: LaunchpadsComponent},
   {path: 'httpError', component: ErrorComponent},
-  {path: 'rockets', component: RocketsComponent}
+  {path: 'rockets', component: RocketsComponent},
+  {path: 'home', component: HomeComponent}
 ];

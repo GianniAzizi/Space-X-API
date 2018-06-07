@@ -1,0 +1,23 @@
+#main-content{
+  width:100%;
+  height: 93.5vh;
+  background:url('http://i.imgur.com/xDGx0JO.jpg');
+  background-size: 100% 100%;
+}
+
+countdown-timer {
+  color: white;
+  font-size: 5em;
+}
+
+#details{
+  color: white;
+  position: absolute;
+  right: 10%;
+  bottom: 34vh;
+  opacity: 0.6;
+}
+
+h1{
+  font-size:4em;
+}

@@ -7,10 +7,10 @@
       </mat-card-header>
       <mat-card-content>
         <mat-form-field>
-          <input type="date" matInput placeholder="Start date">
+          <input type="date" matInput placeholder="Start date" name="start_date" [(ngModel)]="filters.startDate">
         </mat-form-field>
         <mat-form-field>
-          <input type="date" matInput placeholder="End date">
+          <input type="date" matInput placeholder="End date" name="end_date" [(ngModel)]="filters.endDate">
         </mat-form-field>
         <br/>
         <mat-form-field>

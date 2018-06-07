@@ -51,16 +51,3 @@ h2 {
   font-weight: bold;
   text-decoration: none;
 }
-
-.hideContent {
-  max-height: 2em;
-  transition: max-height 0.15s linear;
-  overflow: hidden;
-  background: #d5d5d5;
-  
-}
-.showContent {
-  max-height: 500px;
-  transition: max-height 0.35s linear; 
-  
-}

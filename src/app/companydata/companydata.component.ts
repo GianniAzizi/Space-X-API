@@ -3,8 +3,6 @@ import { CompanydataService } from './companydata.service';
 import { Companydata } from './companydata.model';
 import { History } from './companydata.model';
 
-
-
 @Component({
   selector: 'app-companydata',
   templateUrl: './companydata.component.html',
@@ -26,10 +24,10 @@ export class CompanydataComponent implements OnInit {
     );
 
   }
-  
 
-  
-  
+
+
+
 }
 
 

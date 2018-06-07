@@ -8,12 +8,8 @@
       </span>
     </mat-card-title>
     <mat-card-subtitle>Launch #{{ launch.flight_number }}</mat-card-subtitle>
+    <mat-card-subtitle>{{ launch.launch_date_utc | date: 'MMMM dd yyyy'}}</mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content>
-    <p>
-      {{ launch.details }}
-    </p>
-  </mat-card-content>
   <mat-card-actions>
     <button routerLink="{{ launch.flight_number }}" mat-button>VIEW MORE</button>
     <button *ngIf="launch.links.video_link" (click)="openYoutubeDialog(launch)" mat-button>VIDEO</button>

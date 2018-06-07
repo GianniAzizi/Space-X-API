@@ -14,6 +14,7 @@ export interface FirstStage {
 
 export interface Payload {
   payload_id: string;
+  cap_serial: string;
   reused: boolean;
   customers: string[];
   payload_type: string;

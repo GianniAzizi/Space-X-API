@@ -5,6 +5,7 @@ import {CompanydataComponent} from './companydata/companydata.component';
 import {LaunchpadsComponent} from './launchpads/launchpads.component';
 import {LaunchpadDetailsComponent} from './launchpads/launchpad/launchpad-details.component';
 import {ErrorComponent} from './error/error.component';
+import {RocketsComponent} from './rockets/rockets.component';
 
 export const ROUTES: Routes = [
   {path: 'launches', component: LaunchesComponent},
@@ -12,5 +13,6 @@ export const ROUTES: Routes = [
   {path: 'company', component: CompanydataComponent},
   {path: 'launchpads', component: LaunchpadsComponent},
   {path: 'launchpads/:id', component: LaunchpadDetailsComponent},
-  {path: 'httpError', component: ErrorComponent}
+  {path: 'httpError', component: ErrorComponent},
+  {path: 'rockets', component: RocketsComponent}
 ];

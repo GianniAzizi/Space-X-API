@@ -1,0 +1,30 @@
+<mat-card class="rocket-card">
+  <mat-card-header>
+    <mat-card-title>{{ rocket.name }}</mat-card-title>
+    <mat-card-subtitle>Type {{ rocket.type }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Stages : {{ rocket.stages }}</p>
+    <p>first flight : {{ rocket.first_flight }}</p>
+    <h3>technical characteristics</h3>
+    <p>height: {{ rocket.height.meters }}m</p>
+    <p>diameter: {{ rocket.diameter.meters }}m</p>
+    <p>mass: {{ rocket.mass.kg }}kg</p>
+    <h3>First Stage</h3>
+    <div [ngSwitch]="rocket.first_stage.reusable">
+      <p *ngSwitchCase="true">reusable</p>
+      <p *ngSwitchCase="false">non reusable</p>
+    </div>
+    <p>engines : {{ rocket.first_stage.engines }}</p>
+    <p>fuel amount : {{ rocket.first_stage.fuel_amount_tons }} tons</p>
+    <h3>Second stage</h3>
+    <p>engines : {{ rocket.second_stage.engines }}</p>
+    <p>fuel amount : {{ rocket.second_stage.fuel_amount_tons }} tons</p>
+    <h3>Engines</h3>
+    <p>number : {{ rocket.engines.number }}</p>
+    <p>type : {{ rocket.engines.type }}</p>
+    <p>version : {{ rocket.engines.type }}</p>
+  </mat-card-content>
+  <mat-card-actions>
+  </mat-card-actions>
+</mat-card>

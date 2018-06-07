@@ -2,7 +2,8 @@
   <mat-tab>
 
     <ng-template mat-tab-label>
-      All launch <mat-icon matBadge="{{ launches?.length }}" matBadgeColor="warn"></mat-icon>
+      All launch
+      <mat-icon matBadge="{{ launches?.length }}" matBadgeColor="warn"></mat-icon>
     </ng-template>
 
     <mat-card class="filterCard">
@@ -25,11 +26,11 @@
         </mat-form-field>
 
         <mat-form-field>
-            <mat-select placeholder="Filter by specific rocket" [value]="" [(ngModel)]="this.filters.rocket_id" name="rocket_id">
-              <mat-option value="" value="">All</mat-option>
-              <mat-option *ngFor="let rocket of rockets" [value]="rocket.id">{{ rocket.name }}</mat-option>
-            </mat-select>
-          </mat-form-field>
+          <mat-select placeholder="Filter by specific rocket" [value]="" [(ngModel)]="this.filters.rocket_id" name="rocket_id">
+            <mat-option value="" value="">All</mat-option>
+            <mat-option *ngFor="let rocket of rockets" [value]="rocket.id">{{ rocket.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
         <br/>
         <mat-radio-group>
           <mat-radio-button value="asc" (change)="changeOrderFilter('asc')" [checked]="this.filters.order === 'asc'">ASC</mat-radio-button>
@@ -50,7 +51,8 @@
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
-      Upcoming launch <mat-icon matBadge="{{ upcomingLaunch?.length }}" matBadgeColor="warn"></mat-icon>
+      Upcoming launch
+      <mat-icon matBadge="{{ upcomingLaunch?.length }}" matBadgeColor="warn"></mat-icon>
     </ng-template>
     <div style="height: 50px;"></div>
     <div class="flexCardContainer">
@@ -58,9 +60,10 @@
       <app-launch *ngFor="let launch of upcomingLaunch" [launch]="launch"></app-launch>
     </div>
   </mat-tab>
-  <mat-tab >
+  <mat-tab>
     <ng-template mat-tab-label>
-      Next launch <mat-icon matBadge="1" matBadgeColor="warn"></mat-icon>
+      Next launch
+      <mat-icon matBadge="1" matBadgeColor="warn"></mat-icon>
     </ng-template>
     <div style="height: 50px;"></div>
     <div class="flexCardContainer">
@@ -70,7 +73,8 @@
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
-      Latest launch <mat-icon matBadge="1" matBadgeColor="warn"></mat-icon>
+      Latest launch
+      <mat-icon matBadge="1" matBadgeColor="warn"></mat-icon>
     </ng-template>
     <div style="height: 50px;"></div>
     <div class="flexCardContainer">

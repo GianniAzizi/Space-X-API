@@ -11,18 +11,28 @@
   background-size: cover;
 }
 
+span[class^="landing"] {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
 .landing-success {
   padding: 5px;
-  border-radius: 5px;
   color: #FFF;
   background: #2ecc71;
 }
 
 .landing-failure {
   padding: 5px;
-  border-radius: 5px;
   color: #FFF;
   background: #e74c3c;
+}
+
+.landing-unknown {
+  padding: 5px;
+  color: #FFF;
+  background: #fbc02d;
 }
 
 .launch-card {

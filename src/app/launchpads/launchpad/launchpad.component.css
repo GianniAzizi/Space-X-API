@@ -36,4 +36,39 @@
   width: 400px;
   margin: 10px;
   min-height: 100px;
+  min-height: 200px;
+}
+
+.launchpad-active {
+  padding: 5px;
+  color: #FFF;
+  background: #2ecc71;
+}
+
+.launchpad-retired {
+  padding: 5px;
+  color: #FFF;
+  background: #e74c3c;
+}
+
+.launchpad-construction {
+  padding: 5px;
+  color: #FFF;
+  background: #fbc02d;
+}
+
+span[class^="launchpad"] {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.mat-card-title {
+  max-width: 80%;
+}
+
+.mat-card-actions {
+  margin-bottom: 0 !important;
+  position: absolute;
+  bottom: 0;
 }

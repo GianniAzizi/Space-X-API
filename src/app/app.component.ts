@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {DatePipe} from '@angular/common';
-import {ActivatedRoute, Router} from '@angular/router';
-import {LaunchesService} from './launches/launches.service';
+import { DatePipe } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LaunchesService } from './launches/launches.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,9 @@ export class AppComponent implements OnInit {
     private router: Router
   ) { }
   ngOnInit() {
-    this.router.navigate(['home']);
+    if (this.router.navigate([''])) {
+      this.router.navigate(['home']);
+    }
   }
 }
 

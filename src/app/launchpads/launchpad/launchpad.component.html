@@ -18,18 +18,22 @@
 <mat-card class="launchpad-card">
   <mat-card-header>
     <mat-card-title>{{ launchpad.full_name }}
-      
+        <span [ngSwitch]="launchpad.status">
+            <span class="launchpad-active" *ngSwitchCase="'active'">ACTIVE</span>
+            <span class="launchpad-retired" *ngSwitchCase="'retired'">RETIRED</span>
+            <span class="launchpad-construction" *ngSwitchCase="'under construction'">UNDER CONSTRUCTION</span>
+        </span>
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <p>{{ launchpad.details }}</p>
-    <div [ngSwitch]="launchpad.status">
-        <p class="launchpad-active" *ngSwitchCase="active">active</p>
-        <p class="launchpad-retired" *ngSwitchCase="retired">retired</p>
-        <p class="launchpad-construction" *ngSwitchCase="under construction">under construction</p>
-    </div>
+    <span [ngSwitch]="launchpad.status">
+        <span class="launchpad-active" *ngSwitchCase="active">1</span>
+        <span class="launchpad-retired" *ngSwitchCase="retired">2</span>
+        <span class="launchpad-construction" *ngSwitchCase="under construction">3</span>
+    </span>
   </mat-card-content>
   <mat-card-actions>
-    <a href="/launchpad/{{ launchpad.id }}" mat-button>VIEW MORE</a>
+    <button (click)="openDialog(launchpad)" mat-button>VIEW ON MAP</button>
   </mat-card-actions>
 </mat-card>

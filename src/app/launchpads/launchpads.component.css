@@ -19,20 +19,3 @@
     align-items: flex-start;
   }
 
-  .launchpad-active {
-    padding: 5px;
-    color: #FFF;
-    background: #2ecc71;
-  }
-  
-  .launchpad-retired {
-    padding: 5px;
-    color: #FFF;
-    background: #e74c3c;
-  }
-  
-  .launchpad-construction {
-    padding: 5px;
-    color: #FFF;
-    background: #fbc02d;
-  }

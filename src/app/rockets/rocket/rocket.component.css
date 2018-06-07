@@ -1,6 +1,19 @@
 .rocket-card {
-  min-width: 300Px;
-  width: 30%;
+  width: 500px;
   margin-bottom: 20px;
   min-height: 300px;
+}
+
+.example-headers-align .mat-expansion-panel-header-title, 
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mat-icon {
+  color: grey;
 }

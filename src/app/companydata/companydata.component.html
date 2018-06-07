@@ -97,8 +97,7 @@
       <mat-card-subtitle>{{history.event_date_utc | date: 'MMMM dd yyyy'}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <p class="content hideContent">{{history.details}}</p>
-      <a class="show-more" href="#/">Show more</a>
+      <p class="content hideContent">{{history.details | slice:0:200}} (...)</p>
     </mat-card-content>
     <mat-card-actions>
       <a *ngIf="history.links.reddit" href="{{history.links.reddit}}" target="_BLANK" mat-button>REDDIT</a>

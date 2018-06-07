@@ -40,3 +40,7 @@
 .mat-radio-button {
   margin-right: 10px !important;
 }
+
+.mat-form-field {
+  margin: 10px !important;
+}

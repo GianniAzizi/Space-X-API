@@ -1,7 +1,7 @@
 <mat-tab-group>
   <mat-tab label="All launches">
 
-    <div id="filter-section">
+    <!--<div id="filter-section">
       <form (submit)="applyFilter()">
         <label for="start_date">
           Start date
@@ -30,16 +30,29 @@
         <input type="submit" value="Apply">
         <button (click)="reset()">Reset</button>
       </form>
-    </div>
+    </div>-->
 
     <mat-card class="filterCard">
       <mat-card-header>
         <mat-card-title>Filtering</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-
+        <mat-form-field>
+          <input type="date" matInput placeholder="Start date">
+        </mat-form-field>
+        <mat-form-field>
+          <input type="date" matInput placeholder="End date">
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+          <mat-select placeholder="Filter by specific launchpad" [value]="" [(ngModel)]="this.filters.site_id" name="site_id">
+            <mat-option value="" value="">All</mat-option>
+            <mat-option *ngFor="let launchpad of launchpads" [value]="launchpad.id">{{ launchpad.full_name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br/>
         <mat-radio-group>
-          <mat-radio-button value="asc" (change)="changeOrderFilter('asc')" [checked]="this.filters.order === 'asc'">ASC</mat-radio-button> 
+          <mat-radio-button value="asc" (change)="changeOrderFilter('asc')" [checked]="this.filters.order === 'asc'">ASC</mat-radio-button>
           <mat-radio-button value="desc" (change)="changeOrderFilter('desc')" [checked]="this.filters.order === 'desc'">DESC</mat-radio-button>
         </mat-radio-group>
       </mat-card-content>

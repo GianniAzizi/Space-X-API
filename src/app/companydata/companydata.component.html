@@ -78,7 +78,7 @@
 
 <br/>
 <h2>News</h2>
-
+  <mat-spinner style="margin: auto; margin-top: 50px;" *ngIf="!histories"></mat-spinner>
   <div *ngFor="let history of histories">
     <div class="histories">
       {{history.event_date_utc | date: 'MMMM dd yyyy'}}

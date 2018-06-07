@@ -1,5 +1,6 @@
 <div id="filter-section"></div>
 
+<mat-spinner style="margin: auto; margin-top: 50px;" *ngIf="!launchPads"></mat-spinner>
 <div *ngFor="let launchpad of launchPads">
   <app-launchpad [launchpad]="launchpad" (click)="openPopup(launchpad)"></app-launchpad>
 </div>

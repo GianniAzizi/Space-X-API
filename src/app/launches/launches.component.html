@@ -1,5 +1,9 @@
 <mat-tab-group>
-  <mat-tab label="All launches">
+  <mat-tab>
+
+    <ng-template mat-tab-label>
+      All launch <mat-icon matBadge="{{ launches?.length }}" matBadgeColor="warn"></mat-icon>
+    </ng-template>
 
     <mat-card class="filterCard">
       <mat-card-header>
@@ -43,21 +47,30 @@
       <app-launch *ngFor="let launch of launches" [launch]="launch"></app-launch>
     </div>
   </mat-tab>
-  <mat-tab label="Upcoming launch">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      Upcoming launch <mat-icon matBadge="{{ upcomingLaunch?.length }}" matBadgeColor="warn"></mat-icon>
+    </ng-template>
     <div style="height: 50px;"></div>
     <div class="flexCardContainer">
       <mat-spinner *ngIf="!upcomingLaunch"></mat-spinner>
       <app-launch *ngFor="let launch of upcomingLaunch" [launch]="launch"></app-launch>
     </div>
   </mat-tab>
-  <mat-tab label="Next launch">
+  <mat-tab >
+    <ng-template mat-tab-label>
+      Next launch <mat-icon matBadge="1" matBadgeColor="warn"></mat-icon>
+    </ng-template>
     <div style="height: 50px;"></div>
     <div class="flexCardContainer">
       <mat-spinner *ngIf="!nextLaunch"></mat-spinner>
       <app-launch *ngIf="nextLaunch" [launch]="nextLaunch"></app-launch>
     </div>
   </mat-tab>
-  <mat-tab label="Latest launch">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      Latest launch <mat-icon matBadge="1" matBadgeColor="warn"></mat-icon>
+    </ng-template>
     <div style="height: 50px;"></div>
     <div class="flexCardContainer">
       <mat-spinner *ngIf="!latestLaunch"></mat-spinner>

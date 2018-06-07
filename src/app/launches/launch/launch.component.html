@@ -8,6 +8,7 @@
         <span class="landing-failure" *ngSwitchCase="false">FAILURE</span>
         <span class="landing-unknown" *ngSwitchCase="">UNKNOWN</span>
       </span>
+      <span class="landing-upcoming" *ngIf="today < convertToTimestamp(launch.launch_date_utc)">UPCOMING</span>
     </mat-card-title>
     <mat-card-subtitle>Launch #{{ launch.flight_number }}</mat-card-subtitle>
     <mat-card-subtitle>{{ launch.launch_date_utc | date: 'MMMM dd yyyy'}}</mat-card-subtitle>

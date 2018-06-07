@@ -35,8 +35,14 @@ span[class^="landing"] {
   background: #fbc02d;
 }
 
+.landing-upcoming {
+  padding: 5px;
+  color: #FFF;
+  background: #1E88E5;
+}
+
 .launch-card {
-  width: 300px;
+  width: 400px;
   margin: 10px;
   min-height: 100px;
 }

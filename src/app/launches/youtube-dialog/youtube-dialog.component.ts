@@ -22,10 +22,10 @@ export class YoutubeDialogComponent implements OnInit {
 export class SafePipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) { }
   transform(url) {
-    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-    var match = url.match(regExp);
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
     if (match && match[2].length == 11) {
-      return this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/" + match[2] + "?rel=0&showinfo=0&autoplay=1");
+      return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + match[2] + '?rel=0&showinfo=0&autoplay=1');
     } else {
       return 'Error generating the video';
     }

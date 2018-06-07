@@ -20,7 +20,9 @@ export class LaunchesComponent implements OnInit {
   static FILTERS = { startDate: '', endDate: '', order: 'asc', site_id: '', rocket_id: '' };
   launches: Launch[];
   launchpads: Launchpad[];
-  upcomingLaunch: Launch;
+  upcomingLaunch: Launch[];
+  nextLaunch: Launch;
+  latestLaunch: Launch;
   rockets: Rocket[];
   filters = LaunchesComponent.FILTERS;
 
@@ -41,6 +43,12 @@ export class LaunchesComponent implements OnInit {
     );
     this.rocketsService.getAll().subscribe(
       ((data) => this.rockets = data)
+    );
+    this.launchesService.getLatestLaunch().subscribe(
+      ((data) => this.latestLaunch = data)
+    );
+    this.launchesService.getNextLaunch().subscribe(
+      ((data) => this.nextLaunch = data)
     );
   }
 

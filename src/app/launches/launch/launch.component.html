@@ -16,6 +16,6 @@
   </mat-card-content>
   <mat-card-actions>
     <button routerLink="{{ launch.flight_number }}" mat-button>VIEW MORE</button>
-    <button (click)="openYoutubeDialog(launch)" mat-button>VIDEO</button>
+    <button *ngIf="launch.links.video_link" (click)="openYoutubeDialog(launch)" mat-button>VIDEO</button>
   </mat-card-actions>
 </mat-card>

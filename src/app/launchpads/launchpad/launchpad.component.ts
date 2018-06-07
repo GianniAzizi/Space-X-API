@@ -13,7 +13,6 @@ export class LaunchpadComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-
   }
 
   openPopup(launchpad: Launchpad) {

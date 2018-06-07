@@ -1,49 +1,46 @@
-<img width="150" src="{{launch[0].links.mission_patch}}" />
+<img width="150" *ngIf="launch" src="{{launch[0]?.links.mission_patch}}" />
 
 <h1>Mission details</h1>
-<p>Flight number: {{launch[0].flight_number}}</p>
-<p>Name: {{launch[0].mission_name}}</p>
-<p>Date: {{launch[0].launch_date_utc | date: 'MMMM dd yyyy'}}</p>
-<p>Description: {{launch[0].details}}</p>
+<p *ngIf="launch">Flight number: {{launch[0]?.flight_number}}</p>
+<p *ngIf="launch">Name: {{launch[0]?.mission_name}}</p>
+<p *ngIf="launch">Date: {{launch[0]?.launch_date_utc | date: 'MMMM dd yyyy'}}</p>
+<p *ngIf="launch">Description: {{launch[0]?.details}}</p>
 
 <hr>
 <h2>Rocket details</h2>
-
-
-
-
+<app-rocket [rocket]="rocket"></app-rocket>
 <hr>
 <h2>Capsule details</h2>
-<p>Name: {{capsuledetails.name}}</p>
-<p>Orbit duration: {{capsuledetails.orbit_duration_yr}} years</p>
-<p>Height: {{capsuledetails.height_w_trunk.meters}}m</p>
-<p>Diameter: {{capsuledetails.diameter.meters}}m</p>
+<p>Name: {{capsuledetails?.name}}</p>
+<p>Orbit duration: {{capsuledetails?.orbit_duration_yr}} years</p>
+<p>Height: {{capsuledetails?.height_w_trunk.meters}}m</p>
+<p>Diameter: {{capsuledetails?.diameter.meters}}m</p>
 
 <h3>Heat shield</h3>
-<p>Material: {{capsuledetails.heat_shield.material}}</p>
-<p>Size: {{capsuledetails.heat_shield.size_meters}}m</p>
-<p>Dev partner: {{capsuledetails.heat_shield.dev_partner}}</p>
-<p>Temp degrees: {{capsuledetails.heat_shield.temp_degrees}}°C</p>
+<p>Material: {{capsuledetails?.heat_shield.material}}</p>
+<p>Size: {{capsuledetails?.heat_shield.size_meters}}m</p>
+<p>Dev partner: {{capsuledetails?.heat_shield.dev_partner}}</p>
+<p>Temp degrees: {{capsuledetails?.heat_shield.temp_degrees}}°C</p>
 
 <h3>Thrusters</h3>
-<p>Type: {{capsuledetails.thrusters[0].type}}</p>
-<p>Ammount: {{capsuledetails.thrusters[0].amount}}</p>
-<p>Fuel: {{capsuledetails.thrusters[0].fuel_1}} | {{capsuledetails.thrusters[0].fuel_2}}</p>
+<p>Type: {{capsuledetails?.thrusters[0].type}}</p>
+<p>Ammount: {{capsuledetails?.thrusters[0].amount}}</p>
+<p>Fuel: {{capsuledetails?.thrusters[0].fuel_1}} | {{capsuledetails?.thrusters[0].fuel_2}}</p>
 
 <h3>Launch payload</h3>
-<p>Mass: {{capsuledetails.launch_payload_mass.kg}}kg</p>
-<p>Volume: {{capsuledetails.launch_payload_vol.cubic_meters}}m3</p>
+<p>Mass: {{capsuledetails?.launch_payload_mass.kg}}kg</p>
+<p>Volume: {{capsuledetails?.launch_payload_vol.cubic_meters}}m3</p>
 <hr>
 
 <h2>Launch site details</h2>
-
+<app-launchpad [launchpad]="launchpad"></app-launchpad>
 
 
 <hr>
 <h2>Links</h2>
-<p>PDF: {{launch[0].links.presskit}}</p>
-<p>Article: {{launch[0].links.article_link}}</p>
-<p>Wikipedia: {{launch[0].links.wikipedia}}</p>
-<p>Youtube: {{launch[0].links.video_link}}</p>
+<p>PDF: {{launch[0]?.links.presskit}}</p>
+<p>Article: {{launch[0]?.links.article_link}}</p>
+<p>Wikipedia: {{launch[0]?.links.wikipedia}}</p>
+<p>Youtube: {{launch[0]?.links.video_link}}</p>
 
 <a routerLink="/launches">BACK</a>

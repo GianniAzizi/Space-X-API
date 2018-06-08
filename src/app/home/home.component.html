@@ -1,7 +1,8 @@
 <div id="main-content">
   <div id="details">
-    <h1>Don't miss the next launch !</h1>
-    <a routerLink="/launches/{{nextLaunch.flight_number}}">Mission {{nextLaunch.mission_name}} | Rocket {{nextLaunch.rocket.rocket_name}} | Flight N°{{nextLaunch.flight_number}}, will be launch at {{nextLaunch.launch_site.site_name_long}}</a>
+    <div id="number">{{nextLaunch.flight_number}}</div>
+    <h1>Mission {{nextLaunch.mission_name}}<br/>{{nextLaunch.rocket.rocket_name}}</h1>
+    <p>{{nextLaunch.launch_site.site_name_long}}</p>
     <hr>
     <countdown-timer [end]="date"></countdown-timer>
   </div>

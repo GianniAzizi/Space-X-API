@@ -10,11 +10,6 @@
   </mat-card-header>
   <mat-card-content>
     <p>{{ launchpad.details }}</p>
-    <span [ngSwitch]="launchpad.status">
-        <span class="launchpad-active" *ngSwitchCase="'active'"></span>
-        <span class="launchpad-retired" *ngSwitchCase="'retired'"></span>
-        <span class="launchpad-construction" *ngSwitchCase="'under construction'"></span>
-    </span>
   </mat-card-content>
   <mat-card-actions>
     <button (click)="openDialog(launchpad)" mat-button>VIEW ON MAP</button>

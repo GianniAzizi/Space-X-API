@@ -22,12 +22,15 @@ import {LaunchpadsModule} from './launchpads/launchpads.module';
 import {MaterialModule} from './material/material.module';
 import {ErrorHandlerInterceptor} from './interceptor/error-handler-interceptor.interceptor';
 import {ErrorComponent} from './error/error.component';
+import {RocketsModule} from './rockets/rockets.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ErrorComponent
+    ErrorComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import {ErrorComponent} from './error/error.component';
     LaunchesModule,
     CompanydataModule,
     LaunchpadsModule,
-    MaterialModule
+    MaterialModule,
+    RocketsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorHandlerInterceptor, multi: true}

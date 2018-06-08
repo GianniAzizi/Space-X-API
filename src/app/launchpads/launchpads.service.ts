@@ -20,9 +20,6 @@ export class LaunchpadsService {
   }
 
   getByLaunchpadId(launchpadId: string): Observable<Launchpad> {
-    const params = {
-      params: new HttpParams().set('id', launchpadId)
-    };
-    return this.http.get<Launchpad>(this.baseUrl, params);
+    return this.http.get<Launchpad>(`${this.baseUrl}/${launchpadId}`);
   }
 }

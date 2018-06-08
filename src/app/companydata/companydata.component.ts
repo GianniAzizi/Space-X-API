@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {CompanydataService} from './companydata.service';
-import {Companydata} from './companydata.model';
+import { CompanydataService } from './companydata.service';
+import { Companydata } from './companydata.model';
+import { History } from './companydata.model';
 
 @Component({
   selector: 'app-companydata',
@@ -9,6 +10,7 @@ import {Companydata} from './companydata.model';
 })
 export class CompanydataComponent implements OnInit {
   companyData: Companydata;
+  histories: History[];
 
   constructor(private companydataService: CompanydataService) { }
 
@@ -16,5 +18,16 @@ export class CompanydataComponent implements OnInit {
     this.companydataService.getAll().subscribe(
       ((data) => this.companyData = data)
     );
+
+    this.companydataService.getHistory().subscribe(
+      ((data) => this.histories = data)
+    );
+
   }
+
+
+
+
 }
+
+

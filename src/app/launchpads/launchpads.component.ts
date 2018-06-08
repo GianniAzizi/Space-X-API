@@ -20,12 +20,4 @@ export class LaunchpadsComponent implements OnInit {
       ((data) => this.launchPads = data)
     );
   }
-
-  openPopup(launchpad: Launchpad) {
-    this.launchpadPopupContent = launchpad;
-  }
-
-  closePopup() {
-    this.launchpadPopupContent = null;
-  }
 }

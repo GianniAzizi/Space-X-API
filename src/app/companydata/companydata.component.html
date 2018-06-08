@@ -56,7 +56,7 @@
   <mat-expansion-panel [expanded]="true">
     <mat-expansion-panel-header>
       <mat-panel-title>
-      Headquarters informations
+        Headquarters informations
       </mat-panel-title>
       <mat-panel-description>
         Location informations about {{companyData?.name}} headquarters
@@ -75,3 +75,33 @@
     </p>
   </mat-expansion-panel>
 </mat-accordion>
+
+<br/>
+<h2>History</h2>
+<!--<mat-spinner style="margin: auto; margin-top: 50px;" *ngIf="!histories"></mat-spinner>
+  <div >
+    <div class="histories">
+      {{history.event_date_utc | date: 'MMMM dd yyyy'}}
+      <h3><a href="{{history.links.article}}" target="_BLANK">{{history.title}}</a></h3><br/><br/>
+      {{history.details}}
+      <p><a *ngIf="history.links.reddit" href="{{history.links.reddit}}" target="_BLANK">Reddit |</a> <a *ngIf="history.links.wikipedia" href="{{history.links.wikipedia}}" target="_BLANK"> Wikipedia</a></p>
+    </div>
+  </div>-->
+
+<div class="flexCardContainer">
+  <mat-card class="historyCard" *ngFor="let history of histories">
+    <mat-card-header>
+      <mat-card-title>
+        <a class="aTitle" href="{{history.links.article}}">{{history.title}}</a>
+      </mat-card-title>
+      <mat-card-subtitle>{{history.event_date_utc | date: 'MMMM dd yyyy'}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="content hideContent">{{history.details | slice:0:200}} (...)</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a *ngIf="history.links.reddit" href="{{history.links.reddit}}" target="_BLANK" mat-button>REDDIT</a>
+      <a *ngIf="history.links.wikipedia" href="{{history.links.wikipedia}}" target="_BLANK" mat-button>WIKI</a>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -15,8 +15,16 @@ export class LaunchesService {
     return this.http.get<Launch[]>(`${this.baseUrl}/all`);
   }
 
-  getLatest(): Observable<Launch> {
+  getLatestLaunch(): Observable<Launch> {
     return this.http.get<Launch>(`${this.baseUrl}/latest`);
+  }
+
+  getUpcoming(): Observable<Launch[]> {
+    return this.http.get<Launch[]>(`${this.baseUrl}/upcoming`);
+  }
+
+  getNextLaunch(): Observable<Launch> {
+    return this.http.get<Launch>(`${this.baseUrl}/next`);
   }
 
   getByFlightNumber(flightNumber: string): Observable<Launch> {

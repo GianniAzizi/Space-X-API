@@ -1,0 +1,53 @@
+.histories {
+  width: calc((100% / 2) - 40px);
+  border: 1px solid grey;
+  height:300px;
+  float: left;
+  margin: 19px;
+  background:white;
+}
+
+h2 {
+  margin: 10px;
+}
+
+.historyCard {
+  width: 20%;
+  min-width: 250px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  min-height: 200px;
+}
+
+.flexCardContainer {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.mat-card-actions {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0 !important;
+}
+
+.historyCard .aTitle {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}

@@ -1,15 +1,48 @@
-.launches {
-  width: calc((100% / 4) - 40px);
-  height: 200px;
-  background: red;
-  float: left;
-  margin: 20px;
+.mat-card-actions {
+  position: absolute;
+  bottom: 0;
 }
 
-#filter-section {
-  height: 200px;
+.mat-card>.mat-card-actions:last-child {
+  margin-bottom: 0;
 }
 
-#mission_patch {
-  width: 20%;
+.launch-header-image {
+  background-size: cover;
+}
+
+span[class^="landing"] {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.landing-success {
+  padding: 5px;
+  color: #FFF;
+  background: #2ecc71;
+}
+
+.landing-failure {
+  padding: 5px;
+  color: #FFF;
+  background: #e74c3c;
+}
+
+.landing-unknown {
+  padding: 5px;
+  color: #FFF;
+  background: #fbc02d;
+}
+
+.landing-upcoming {
+  padding: 5px;
+  color: #FFF;
+  background: #1E88E5;
+}
+
+.launch-card {
+  width: 400px;
+  margin: 10px;
+  min-height: 100px;
 }

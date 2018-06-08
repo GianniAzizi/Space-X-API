@@ -1,0 +1,7 @@
+<h1 mat-dialog-title>{{ launchpad.full_name }}</h1>
+<mat-dialog-content>
+  <app-googlemaps [lat]=launchpad.location.latitude [lng]=launchpad.location.longitude></app-googlemaps>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

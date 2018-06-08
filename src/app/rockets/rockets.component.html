@@ -1,0 +1,4 @@
+<div class="flexCardContainer" style="margin-top: 25px;">
+  <mat-spinner *ngIf="!rockets"></mat-spinner>
+  <app-rocket *ngFor="let rocket of rockets" [rocket]="rocket"></app-rocket>
+</div>

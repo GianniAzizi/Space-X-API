@@ -1,60 +1,87 @@
-<div id="filter-section">
-  <form (submit)="applyFilter()">
-    <label for="start_date">
-      Start date
-      <input id="start_date" type="date" name="start_date" [(ngModel)]="filters.startDate">
-    </label>
-    <label for="end_date">
-      End date
-      <input id="end_date" type="date" name="end_date" [(ngModel)]="filters.endDate">
-    </label>
-    <div>
-      ASC <input type="radio" name="order" value="asc" (change)="changeOrderFilter('asc')" [checked]="this.filters.order === 'asc'">
-      DESC <input type="radio" name="order" value="desc" (change)="changeOrderFilter('desc')" [checked]="this.filters.order === 'desc'">
+<mat-tab-group>
+  <mat-tab>
+
+    <ng-template mat-tab-label>
+      All launch
+      <mat-icon matBadge="{{ launches?.length }}" matBadgeColor="warn"></mat-icon>
+    </ng-template>
+
+    <mat-card class="filterCard">
+      <mat-card-header>
+        <mat-card-title>Filtering</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field>
+          <input type="date" matInput placeholder="Start date" name="start_date" [(ngModel)]="filters.startDate">
+        </mat-form-field>
+        <mat-form-field>
+          <input type="date" matInput placeholder="End date" name="end_date" [(ngModel)]="filters.endDate">
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+          <mat-select placeholder="Filter by specific launchpad" [value]="" [(ngModel)]="this.filters.site_id" name="site_id">
+            <mat-option value="" value="">All</mat-option>
+            <mat-option *ngFor="let launchpad of launchpads" [value]="launchpad.id">{{ launchpad.full_name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Filter by specific rocket" [value]="" [(ngModel)]="this.filters.rocket_id" name="rocket_id">
+            <mat-option value="" value="">All</mat-option>
+            <mat-option *ngFor="let rocket of rockets" [value]="rocket.id">{{ rocket.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br/>
+        <mat-radio-group>
+          <mat-radio-button value="asc" (change)="changeOrderFilter('asc')" [checked]="this.filters.order === 'asc'">ASC</mat-radio-button>
+          <mat-radio-button value="desc" (change)="changeOrderFilter('desc')" [checked]="this.filters.order === 'desc'">DESC</mat-radio-button>
+        </mat-radio-group>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="applyFilter()">APPLY</button>
+        <button mat-button (click)="reset()">RESET</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <div class="flexCardContainer">
+      <mat-spinner *ngIf="!launches"></mat-spinner>
+      <h3 *ngIf="launches?.length === 0">No results were found</h3>
+      <app-launch *ngFor="let launch of launches" [launch]="launch"></app-launch>
     </div>
-    search by launchpad
-    <select [(ngModel)]="this.filters.site_id" name="site_id">
-      <option value="" [selected]="this.filters.site_id === ''">All</option>
-      <option *ngFor="let launchpad of launchpads" [value]="launchpad.id" [selected]="this.filters.site_id === launchpad.id">{{ launchpad.full_name }}</option>
-    </select>
-    <br>
-    search by rocket
-    <select [(ngModel)]="this.filters.rocket_id" name="rocket_id">
-      <option value="" [selected]="this.filters.rocket_id === ''">All</option>
-      <option *ngFor="let rocket of rockets" [value]="rocket.id" [selected]="this.filters.rocket_id === rocket.id">{{ rocket.name }}</option>
-    </select>
-    <br>
-    <input type="submit" value="Apply">
-    <button (click)="reset()">Reset</button>
-  </form>
-</div>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      Upcoming launch
+      <mat-icon matBadge="{{ upcomingLaunch?.length }}" matBadgeColor="warn"></mat-icon>
+    </ng-template>
+    <div style="height: 50px;"></div>
+    <div class="flexCardContainer">
+      <mat-spinner *ngIf="!upcomingLaunch"></mat-spinner>
+      <app-launch *ngFor="let launch of upcomingLaunch" [launch]="launch"></app-launch>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      Next launch
+      <mat-icon matBadge="1" matBadgeColor="warn"></mat-icon>
+    </ng-template>
+    <div style="height: 50px;"></div>
+    <div class="flexCardContainer">
+      <mat-spinner *ngIf="!nextLaunch"></mat-spinner>
+      <app-launch *ngIf="nextLaunch" [launch]="nextLaunch"></app-launch>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      Latest launch
+      <mat-icon matBadge="1" matBadgeColor="warn"></mat-icon>
+    </ng-template>
+    <div style="height: 50px;"></div>
+    <div class="flexCardContainer">
+      <mat-spinner *ngIf="!latestLaunch"></mat-spinner>
+      <app-launch *ngIf="latestLaunch" [launch]="latestLaunch"></app-launch>
+    </div>
+  </mat-tab>
+</mat-tab-group>
 
-<div class="flexCardContainer">
-<mat-card class="launch-card" *ngFor="let launch of launches">
-  <mat-card-header>
-    <div mat-card-avatar class="launch-header-image" [style.background-image]="'url('+ launch.links.mission_patch_small +')'"></div>
-    <mat-card-title>{{ launch.mission_name }}</mat-card-title>
-    <mat-card-subtitle>Launch #{{ launch.flight_number }}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p>
-      {{ launch.details }}
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button routerLink="{{ launch.flight_number }}" mat-button>VIEW MORE</button>
-    <button (click)="openYoutubeDialog(launch)" mat-button>VIDEO</button>
-  </mat-card-actions>
-</mat-card>
-</div>
-
-<!--<div *ngFor="let launch of launches">
-  <app-launch [launch]="launch" (click)="openPopup(launch)"></app-launch>
-</div>
-<div id="launch-popup-container" *ngIf="launchPopupContent">
-  <span class="close" (click)="closePopup()">X</span>
-  <p>mission_name : {{ launchPopupContent.mission_name }}</p>
-  <a routerLink="{{ launchPopupContent.flight_number }}">SEE MORE</a>
-</div>-->
 <router-outlet></router-outlet>
-

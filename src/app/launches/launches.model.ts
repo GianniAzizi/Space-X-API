@@ -14,6 +14,7 @@ export interface FirstStage {
 
 export interface Payload {
   payload_id: string;
+  cap_serial: string;
   reused: boolean;
   customers: string[];
   payload_type: string;
@@ -54,6 +55,7 @@ export interface LaunchSite {
 
 export interface Links {
   mission_patch: string;
+  mission_patch_small: string;
   reddit_campaign: string;
   reddit_launch: string;
   reddit_recovery?: any;

@@ -14,4 +14,8 @@ export class RocketsService {
   getAll(): Observable<Rocket[]> {
     return this.http.get<Rocket[]>(this.baseUrl);
   }
+
+  getByRocketId(rocketId: string): Observable<Rocket> {
+    return this.http.get<Rocket>(`${this.baseUrl}/${rocketId}`);
+  }
 }

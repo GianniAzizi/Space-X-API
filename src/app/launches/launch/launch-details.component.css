@@ -1,0 +1,26 @@
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  margin: 30px auto 10px auto;
+}
+
+.details {
+  width: 75%;
+  margin: 20px auto;
+}
+
+.capsule-card {
+  width: 500px;
+}
+
+::ng-deep .mat-tab-labels {
+  justify-content: center;
+}
+
+.listLink {
+  margin: 0 auto;
+}

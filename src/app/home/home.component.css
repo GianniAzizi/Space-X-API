@@ -49,3 +49,7 @@ a{
 hr{
   border:1px solid #EACFB6;
 }
+
+.countdown-timer {
+  font-size: 4.5em;
+}

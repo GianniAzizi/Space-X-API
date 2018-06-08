@@ -3,7 +3,7 @@
     <h1>Don't miss the next launch !</h1>
     <a routerLink="/launches/{{nextLaunch.flight_number}}">Mission {{nextLaunch.mission_name}} | Rocket {{nextLaunch.rocket.rocket_name}} | Flight N°{{nextLaunch.flight_number}}, will be launch at {{nextLaunch.launch_site.site_name_long}}</a>
     <hr>
-    <countdown-timer [end]="date"></countdown-timer>
+    <div class="countdown-timer">{{ days }}D {{ hours }}H {{ minutes }}M {{ seconds }}S</div>
   </div>
 
 

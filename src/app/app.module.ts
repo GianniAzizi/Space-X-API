@@ -24,7 +24,6 @@ import {ErrorHandlerInterceptor} from './interceptor/error-handler-interceptor.i
 import {ErrorComponent} from './error/error.component';
 import {RocketsModule} from './rockets/rockets.module';
 import { HomeComponent } from './home/home.component';
-import { CountdownTimerModule } from './ngx-countdown-timer';
 
 @NgModule({
   declarations: [
@@ -50,8 +49,7 @@ import { CountdownTimerModule } from './ngx-countdown-timer';
     CompanydataModule,
     LaunchpadsModule,
     MaterialModule,
-    RocketsModule,
-    CountdownTimerModule.forRoot()
+    RocketsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorHandlerInterceptor, multi: true}

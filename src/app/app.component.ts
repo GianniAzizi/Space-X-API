@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DatePipe } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
-import { LaunchesService } from './launches/launches.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +12,11 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router
   ) { }
-  ngOnInit() {
 
+  ngOnInit() {
+    if (this.router.url === '/') {
+      this.router.navigate(['home']);
+    }
   }
 }
 
